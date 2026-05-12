@@ -1,19 +1,21 @@
 [gd_scene format=3 uid="uid://brduitqs8lcde"]
 
 [ext_resource type="Script" uid="uid://chtxfthry1ini" path="res://node_2d.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://bf08goc52qci3" path="res://icon.svg" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://buv3ox3caqwij" path="res://assets/Yellow/idle.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(37, 35)
+size = Vector2(2, 27)
 
 [node name="player" type="CharacterBody2D" unique_id=439305841]
 script = ExtResource("1_3vyb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=234181838]
-position = Vector2(-2, 1.0000038)
-scale = Vector2(0.2109375, 0.234375)
+position = Vector2(-5.000002, -6.000003)
+scale = Vector2(4, 3.387)
 texture = ExtResource("2_g2els")
+hframes = 2
+vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=766436997]
-position = Vector2(-2.5, 1.5)
+position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_g2els")
