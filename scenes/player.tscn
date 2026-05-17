@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brduitqs8lcde"]
 
 [ext_resource type="Script" uid="uid://chtxfthry1ini" path="res://node_2d.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://buv3ox3caqwij" path="res://assets/Yellow/idle.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bo01tv2yxsi1u" path="res://assets/Spritesheets (1)/Spritesheet_with_Shadows.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(2, 27)
@@ -10,12 +10,19 @@ size = Vector2(2, 27)
 script = ExtResource("1_3vyb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=234181838]
-position = Vector2(-5.000002, -6.000003)
-scale = Vector2(4, 3.387)
+position = Vector2(0, -8)
+scale = Vector2(3, 3)
 texture = ExtResource("2_g2els")
-hframes = 2
-vframes = 3
+hframes = 6
+vframes = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=766436997]
 position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=731212425]
+zoom = Vector2(1.1, 1.1)
+limit_left = -96
+limit_top = -740
+limit_right = 1630
+limit_bottom = 600
