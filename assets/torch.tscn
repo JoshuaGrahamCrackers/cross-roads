@@ -40,7 +40,7 @@ fill_to = Vector2(0.061011903, 0.3080357)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1057231467]
 sprite_frames = SubResource("SpriteFrames_hj1o2")
 autoplay = "default"
-frame_progress = 0.4987792
+frame_progress = 0.42333755
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1025866825]
 position = Vector2(-1.5258789e-05, 0.9999962)

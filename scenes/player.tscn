@@ -4,9 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://bo01tv2yxsi1u" path="res://assets/Spritesheets (1)/Spritesheet_with_Shadows.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(2, 27)
+size = Vector2(20, 23)
+
+[sub_resource type="Gradient" id="Gradient_g2els"]
+offsets = PackedFloat32Array(0.18526785, 0.5870536)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
+gradient = SubResource("Gradient_g2els")
+fill = 1
+fill_from = Vector2(0.5282738, 0.45982143)
+fill_to = Vector2(0.8735119, 0.50744045)
 
 [node name="player" type="CharacterBody2D" unique_id=439305841]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_3vyb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=234181838]
@@ -14,10 +26,10 @@ position = Vector2(0, -8)
 scale = Vector2(3, 3)
 texture = ExtResource("2_g2els")
 hframes = 6
-vframes = 20
+vframes = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=766436997]
-position = Vector2(0, -12.5)
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=731212425]
@@ -26,3 +38,9 @@ limit_left = -96
 limit_top = -740
 limit_right = 1630
 limit_bottom = 600
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=488145629]
+position = Vector2(0, -14.000002)
+scale = Vector2(2.0390625, 1.9296875)
+color = Color(0.88235295, 0.32941177, 0, 0.84705883)
+texture = SubResource("GradientTexture2D_qhqgy")
