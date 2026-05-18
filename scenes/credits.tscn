@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://d2ageyopwyaj3"]
+
+[ext_resource type="Script" uid="uid://b6e35sqfl7ymx" path="res://scenes/credits.gd" id="1_j6beo"]
+[ext_resource type="Texture2D" uid="uid://d4mq0wgys8soi" path="res://assets/Ghosts/Characters/Ghost/Blue/attack.png" id="1_pjc1l"]
+[ext_resource type="Texture2D" uid="uid://b3260ne2ajl25" path="res://assets/Spritesheets (1)/Spritesheet_without_Shadows.png" id="2_j6beo"]
+[ext_resource type="PackedScene" uid="uid://cu3bahs8y3oy7" path="res://assets/torch.tscn" id="3_4av4j"]
+[ext_resource type="Texture2D" uid="uid://oafqbmy0vgds" path="res://assets/RF_Catacombs_v1.0/candleB_04.png" id="4_5em78"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h30m1"]
+bg_color = Color(0.5882353, 0, 0.003921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pjc1l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjc1l"]
+bg_color = Color(0.16078432, 0, 0.5921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="FontVariation" id="FontVariation_3mii5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6beo"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="credits" type="Control" unique_id=1399215795]
+layout_mode = 3
+anchor_right = 0.92300004
+anchor_bottom = 0.924
+offset_right = 99.70398
+offset_bottom = 117.247986
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j6beo")
+metadata/_edit_vertical_guides_ = [-419.0, -357.0]
+metadata/_edit_horizontal_guides_ = [918.0]
+
+[node name="Panel" type="Panel" parent="." unique_id=1904479661]
+layout_mode = 0
+offset_right = 1210.0
+offset_bottom = 707.0
+
+[node name="Start" type="Button" parent="." unique_id=1879920467]
+layout_mode = 0
+offset_left = 55.5
+offset_top = 195.5
+offset_right = 1093.5
+offset_bottom = 237.5
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "A GAME BY "
+
+[node name="Start2" type="Button" parent="." unique_id=2337845]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 380.0
+offset_right = 1090.0
+offset_bottom = 422.0
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "ART BY
+"
+
+[node name="Credits" type="Button" parent="." unique_id=1522352802]
+top_level = true
+material = SubResource("CanvasItemMaterial_pjc1l")
+layout_mode = 0
+offset_left = 59.0
+offset_top = 277.0
+offset_right = 1097.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_pjc1l")
+text = "Harry Aliev
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2043974039]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 381.0
+offset_right = 1054.0
+offset_bottom = 528.0
+alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer" unique_id=1489757748]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "Snoblin "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=708811583]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "|Szadi Art |"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=1195244851]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "Lyinia Design"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack2" type="Sprite2D" parent="." unique_id=331178789]
+position = Vector2(425, 553)
+scale = Vector2(6.6328144, 6.421874)
+texture = ExtResource("1_pjc1l")
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="knight" type="Sprite2D" parent="." unique_id=569761305]
+position = Vector2(714, 493)
+scale = Vector2(6.546875, 6.1757813)
+texture = ExtResource("2_j6beo")
+hframes = 6
+vframes = 18
+frame = 88
+
+[node name="torch" parent="." unique_id=759864548 instance=ExtResource("3_4av4j")]
+position = Vector2(576, 124)
+scale = Vector2(4, 4)
+
+[node name="CandleB04" type="Sprite2D" parent="." unique_id=1662403270]
+position = Vector2(544, 570)
+scale = Vector2(4.153846, 4.0000014)
+texture = ExtResource("4_5em78")
+
+[node name="Back" type="Button" parent="." unique_id=450887871]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 542.0
+offset_right = 197.0
+offset_bottom = 637.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6beo")
+text = "<-----"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -15,6 +15,12 @@ func _on_timer_timeout() -> void:
 	if random_marker.name.contains("left"):
 		ghost.set_direction(Vector2.RIGHT)
 		print('left')
+	elif random_marker.name.contains("down"):
+		ghost.set_direction(Vector2.UP)
+		print('down')
+	elif random_marker.name.contains("up"):
+		ghost.set_direction(Vector2.DOWN)
+		print('down')
 	else:
 		ghost.set_direction(Vector2.LEFT)
 		print('right')

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://k54d0i7icdl"]
+
+[ext_resource type="Script" uid="uid://dot8pv0jot7nm" path="res://menu.gd" id="1_4hy44"]
+[ext_resource type="Texture2D" uid="uid://d4mq0wgys8soi" path="res://assets/Ghosts/Characters/Ghost/Blue/attack.png" id="1_mae5d"]
+[ext_resource type="PackedScene" uid="uid://cu3bahs8y3oy7" path="res://assets/torch.tscn" id="2_4hy44"]
+[ext_resource type="Texture2D" uid="uid://b3260ne2ajl25" path="res://assets/Spritesheets (1)/Spritesheet_without_Shadows.png" id="3_ytr4m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l48gv"]
+bg_color = Color(0.5882353, 0, 0.003921569, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="FontVariation" id="FontVariation_4hy44"]
+
+[node name="Menu" type="Control" unique_id=312411386]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 7.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_4hy44")
+
+[node name="Panel" type="Panel" parent="." unique_id=481952388]
+layout_mode = 0
+offset_right = 1210.0
+offset_bottom = 707.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1449825275]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.5
+offset_top = -128.5
+offset_right = 517.5
+offset_bottom = 357.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=312544613]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
+text = "START"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1604025025]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
+text = "Credits
+"
+
+[node name="Attack2" type="Sprite2D" parent="." unique_id=1536377916]
+position = Vector2(446.25003, 420.00006)
+scale = Vector2(6.703126, 6.7187495)
+texture = ExtResource("1_mae5d")
+hframes = 4
+vframes = 3
+frame = 5
+
+[node name="torch" parent="." unique_id=759864548 instance=ExtResource("2_4hy44")]
+position = Vector2(681, 361)
+scale = Vector2(4, 4)
+
+[node name="knight" type="Sprite2D" parent="." unique_id=1645724128]
+position = Vector2(557.7502, 372.5)
+scale = Vector2(7.0625, 6.0156255)
+texture = ExtResource("3_ytr4m")
+hframes = 6
+vframes = 18
+frame = 51
+
+[node name="Label" type="Label" parent="." unique_id=1174539419]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -700.5
+offset_top = 25.0
+offset_right = 699.5
+offset_bottom = 454.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_4hy44")
+theme_override_font_sizes/font_size = 64
+text = "Night Knight"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
