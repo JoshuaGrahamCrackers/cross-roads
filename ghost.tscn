@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://4vurypk5mged"]
+
+[ext_resource type="Script" uid="uid://o6600enlybuj" path="res://ghost.gd" id="1_6attn"]
+[ext_resource type="Texture2D" uid="uid://bmt5amnim8u0e" path="res://assets/Ghosts/Characters/Ghost/Blue/walk.png" id="1_v5pp4"]
+
+[sub_resource type="Animation" id="Animation_6attn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_obmiq"]
+resource_name = "walk-back"
+length = 0.76666665
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_xtt71"]
+resource_name = "walk-front"
+length = 0.76666665
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_hiw70"]
+resource_name = "walk-right"
+length = 0.76666665
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jw18l"]
+_data = {
+&"RESET": SubResource("Animation_6attn"),
+&"walk-back": SubResource("Animation_obmiq"),
+&"walk-front": SubResource("Animation_xtt71"),
+&"walk-right": SubResource("Animation_hiw70")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6attn"]
+
+[node name="ghost" type="CharacterBody2D" unique_id=845334816]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_6attn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=372147597]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_jw18l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281151211]
+shape = SubResource("RectangleShape2D_6attn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=862016238]
+position = Vector2(-2.861023e-06, -9.536743e-07)
+scale = Vector2(4, 4)
+texture = ExtResource("1_v5pp4")
+hframes = 4
+vframes = 3

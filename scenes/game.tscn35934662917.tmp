@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://brduitqs8lcde" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dj6tm5yuvl8di" path="res://assets/RF_Catacombs_v1.0/mainlevbuild.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bcwwwq7wmu8lk" path="res://assets/torch.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://4vurypk5mged" path="res://ghost.tscn" id="5_iywne"]
 [ext_resource type="Script" uid="uid://cf84xcvd7n46a" path="res://scenes/timer.gd" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
@@ -4850,25 +4849,30 @@ top_level = true
 position = Vector2(213, 535)
 shape = SubResource("RectangleShape2D_iywne")
 
-[node name="Ghost-Spawn" type="Node2D" parent="." unique_id=2109025667]
+[node name="Ghost Spawn" type="Node2D" parent="." unique_id=2109025667]
 
-[node name="right1" type="Marker2D" parent="Ghost-Spawn" unique_id=490896296]
+[node name="Left" type="Node2D" parent="Ghost Spawn" unique_id=1170063307]
+position = Vector2(-82, 0)
+
+[node name="Marker2D" type="Marker2D" parent="Ghost Spawn/Left" unique_id=917082103]
+position = Vector2(46, 49)
+
+[node name="Marker2D2" type="Marker2D" parent="Ghost Spawn/Left" unique_id=1877725570]
+position = Vector2(46, 453)
+
+[node name="Marker2D3" type="Marker2D" parent="Ghost Spawn/Left" unique_id=1564926369]
+position = Vector2(46, -380)
+
+[node name="Right" type="Node2D" parent="Ghost Spawn" unique_id=1905620719]
+
+[node name="Marker2D4" type="Marker2D" parent="Ghost Spawn/Right" unique_id=490896296]
 position = Vector2(1739, 49)
 
-[node name="right2" type="Marker2D" parent="Ghost-Spawn" unique_id=1017327401]
+[node name="Marker2D5" type="Marker2D" parent="Ghost Spawn/Right" unique_id=1017327401]
 position = Vector2(1739, 453)
 
-[node name="right3" type="Marker2D" parent="Ghost-Spawn" unique_id=516340525]
+[node name="Marker2D6" type="Marker2D" parent="Ghost Spawn/Right" unique_id=516340525]
 position = Vector2(1739, -380)
-
-[node name="left1" type="Marker2D" parent="Ghost-Spawn" unique_id=917082103]
-position = Vector2(-36, 49)
-
-[node name="left2" type="Marker2D" parent="Ghost-Spawn" unique_id=1877725570]
-position = Vector2(-36, 453)
-
-[node name="left3" type="Marker2D" parent="Ghost-Spawn" unique_id=1564926369]
-position = Vector2(-36, -380)
 
 [node name="Chars" type="Node2D" parent="." unique_id=1914160997]
 
@@ -4878,10 +4882,7 @@ y_sort_enabled = true
 position = Vector2(501, 433)
 
 [node name="Ghosts" type="Node2D" parent="Chars" unique_id=1533941391]
-z_index = 4
-
-[node name="ghost" parent="Chars/Ghosts" unique_id=845334816 instance=ExtResource("5_iywne")]
-position = Vector2(474, 24)
+z_index = 6
 
 [node name="Timers" type="Node" parent="." unique_id=322851718]
 
