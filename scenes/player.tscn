@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bo01tv2yxsi1u" path="res://assets/Spritesheets (1)/Spritesheet_with_Shadows.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(20, 23)
+size = Vector2(18, 17.5)
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 offsets = PackedFloat32Array(0.18526785, 0.5870536)
@@ -253,7 +253,7 @@ hframes = 6
 vframes = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=766436997]
-position = Vector2(0, -10.5)
+position = Vector2(1, -5.75)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=731212425]

@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://d1oyi7xaqtd5q"]
+
+[ext_resource type="Script" uid="uid://l3x7vmhf6hir" path="res://block_ghost.gd" id="1_m3p7k"]
+
+[sub_resource type="Animation" id="Animation_6attn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_m3p7k"]
+resource_name = "idle-front"
+length = 0.6666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_mbg6f"]
+resource_name = "idle-left"
+length = 0.6666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333337, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_y63kg"]
+resource_name = "idle-right"
+length = 0.6666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.33333337, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_kl0mf"]
+resource_name = "spawn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jw18l"]
+_data = {
+&"RESET": SubResource("Animation_6attn"),
+&"idle-front": SubResource("Animation_m3p7k"),
+&"idle-left": SubResource("Animation_mbg6f"),
+&"idle-right": SubResource("Animation_y63kg"),
+&"spawn": SubResource("Animation_kl0mf")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mbg6f"]
+load_path = "res://.godot/imported/idle.png-20cc3a048863b011f96e313a6f01ac40.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3p7k"]
+resource_local_to_scene = true
+size = Vector2(60, 46)
+
+[sub_resource type="Gradient" id="Gradient_f1vdh"]
+offsets = PackedFloat32Array(0, 0.24033614, 0.59159666, 0.9764706, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.045662105, 0.045662105, 0.045662105, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m3p7k"]
+gradient = SubResource("Gradient_f1vdh")
+fill = 1
+fill_from = Vector2(0.55270654, 0.64102566)
+fill_to = Vector2(0.7777778, 0.3048433)
+
+[node name="blockGhost" type="CharacterBody2D" unique_id=845334816]
+scale = Vector2(1.4, 1.4)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_m3p7k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=372147597]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_jw18l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=862016238]
+position = Vector2(-2.861023e-06, -9.536743e-07)
+scale = Vector2(3.8, 3.8)
+texture = SubResource("CompressedTexture2D_mbg6f")
+hframes = 4
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201240863]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_m3p7k")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1630002395]
+position = Vector2(1.1920929e-07, 0)
+scale = Vector2(1.8660713, 2.071568)
+color = Color(0.13333334, 0.6862745, 0, 0.8117647)
+energy = 1.2
+texture = SubResource("GradientTexture2D_m3p7k")
+offset = Vector2(0, -2)
+
+[node name="TimerFade" type="Timer" parent="." unique_id=350680232]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerFade" to="." method="_on_timer_fade_timeout"]

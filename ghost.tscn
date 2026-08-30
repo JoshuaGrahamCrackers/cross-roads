@@ -77,7 +77,19 @@ _data = {
 &"walk-right": SubResource("Animation_hiw70")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6attn"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6attn"]
+radius = 13.0
+height = 32.0
+
+[sub_resource type="Gradient" id="Gradient_f1vdh"]
+offsets = PackedFloat32Array(0.084033616, 0.3159664, 0.59159666, 0.8957983, 0.9764706)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0.045662105, 0.045662105, 0.045662105, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6attn"]
+gradient = SubResource("Gradient_f1vdh")
+fill = 1
+fill_from = Vector2(0.55270654, 0.64102566)
+fill_to = Vector2(0.75213677, 0.36752138)
 
 [node name="ghost" type="CharacterBody2D" unique_id=845334816]
 collision_layer = 4
@@ -88,12 +100,25 @@ script = ExtResource("1_6attn")
 root_node = NodePath("../Sprite2D")
 libraries/ = SubResource("AnimationLibrary_jw18l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281151211]
-shape = SubResource("RectangleShape2D_6attn")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=862016238]
 position = Vector2(-2.861023e-06, -9.536743e-07)
 scale = Vector2(4, 4)
 texture = ExtResource("1_v5pp4")
 hframes = 4
 vframes = 3
+
+[node name="KillRange" type="Area2D" parent="." unique_id=678473237]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillRange" unique_id=2060354479]
+shape = SubResource("CapsuleShape2D_6attn")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=432182199]
+position = Vector2(-5.999999, -18)
+scale = Vector2(1.46875, 1.7949219)
+color = Color(0.42352942, 0.7882353, 1, 1)
+energy = 0.65
+texture = SubResource("GradientTexture2D_6attn")
+
+[connection signal="body_entered" from="KillRange" to="." method="_on_kill_range_body_entered"]
