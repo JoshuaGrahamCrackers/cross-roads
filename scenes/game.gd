@@ -2,13 +2,13 @@ extends Node2D
 @onready var ghost_container = $Chars/Ghosts
 @onready var blocker_container = $Chars/Blockers
 @onready var fatghost_container = $Chars/FatGhosts
-@onready var fat_spawn_node = $"fat-spawn" 
+@onready var fat_spawn_node = $"fat-spawn"
 var ghost_scene = preload("res://ghost.tscn")
 var blocker_scene = preload("res://block_ghost.tscn")
 var fat_ghost_scene = preload("res://fat_ghost.tscn")
 var diffLevel = 1
 
-var playerLane=1;
+var playerLane = 1
 
 const SIDES := ["left", "right", "up", "down"]
 const OPPOSITE_DIR := {
@@ -34,6 +34,10 @@ const GHOST_COOLDOWN_TIME := 0.4  # seconds before a marker can be reused by a g
 # Sandwich: per-lane cooldown so the same Y lane can't sandwich again immediately
 var sandwich_lane_cooldown := {}  # lane number -> true (temporary)
 const SANDWICH_LANE_COOLDOWN_TIME := 4.0  # seconds before the same lane can sandwich again
+
+# Fat ghost: cooldown so it doesn't spawn every single tick once unlocked
+const FAT_GHOST_COOLDOWN := 8.0  # seconds between fat ghost spawns
+var last_fat_ghost_time := -999.0
 
 func _get_free_ghost_markers(side: String) -> Array:
 	var all_markers := get_tree().get_nodes_in_group(side)
@@ -81,6 +85,11 @@ func _on_unit_freed(marker: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	var spawn_count = 1 + int(diffLevel / 5)
+	var time_now = Time.get_ticks_msec() / 1000.0
+	
+	if diffLevel >= 3 and time_now - last_fat_ghost_time > FAT_GHOST_COOLDOWN:
+		_spawn_fat_ghost()
+		last_fat_ghost_time = time_now
 	
 	if diffLevel >= 4:
 		var sandwich_chance = min(0.3, (diffLevel - 3) * 0.1)  # starts at 10%, +10% per level, capped at 30%
@@ -135,35 +144,28 @@ func _sandwich_y() -> void:
 		sandwich_lane_cooldown.erase(lane)
 	)
 
-
 func _on_detection_body_entered(body: Node2D) -> void:
-	playerLane=1
-	print("[LANE] entered zone 1, playerLane=", playerLane)
-
+	playerLane = 1
 
 func _on_detection_2_body_entered(body: Node2D) -> void:
-	playerLane=2
-	print("[LANE] entered zone 2, playerLane=", playerLane)
-
+	playerLane = 2
 
 func _on_detection_3_body_entered(body: Node2D) -> void:
-	playerLane=3
-	print("[LANE] entered zone 3, playerLane=", playerLane)
+	playerLane = 3
 
-func _input(event: InputEvent) -> void:
-	# TEMP TEST ONLY — remove when done testing
-	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
-		_test_spawn_fat_ghost()
-
-func _test_spawn_fat_ghost() -> void:
-	var marker_name = "left" + str(playerLane)
+# --- Fat ghost: spawns automatically from a random side (left/right) at a random lane ---
+func _spawn_fat_ghost() -> void:
+	var side: String = ["left", "right"].pick_random()
+	var lane := randi_range(1, 3)
+	var marker_name = side + str(lane)
+	
 	var marker = fat_spawn_node.get_node_or_null(marker_name)
 	
 	if marker == null:
-		push_warning("TEST: No fat ghost marker found: " + marker_name)
+		push_warning("Fat ghost marker not found: " + marker_name)
 		return
 	
 	var unit = fat_ghost_scene.instantiate()
 	unit.global_position = marker.global_position
-	unit.set_direction(OPPOSITE_DIR["left"])
+	unit.set_direction(OPPOSITE_DIR[side])
 	fatghost_container.add_child(unit)
