@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bit7ve7sqhakf"]
+
+[ext_resource type="PackedScene" uid="uid://cbqx1lt36m0xa" path="res://fat_ghost.tscn" id="1_11nx8"]
+[ext_resource type="PackedScene" uid="uid://4vurypk5mged" path="res://ghost.tscn" id="2_0f71g"]
+[ext_resource type="PackedScene" uid="uid://brduitqs8lcde" path="res://scenes/player.tscn" id="3_0svq1"]
+
+[node name="hitboxTest" type="Node" unique_id=792903815]
+
+[node name="ghost" parent="." unique_id=845334816 instance=ExtResource("1_11nx8")]
+
+[node name="ghost2" parent="." unique_id=1896703771 instance=ExtResource("2_0f71g")]
+position = Vector2(-1.5, 219.99997)
+
+[node name="player" parent="." unique_id=439305841 instance=ExtResource("3_0svq1")]
+position = Vector2(458.99994, 24.999992)

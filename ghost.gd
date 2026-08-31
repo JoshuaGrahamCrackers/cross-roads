@@ -5,9 +5,14 @@ const friction = 100
 var direction:=Vector2.RIGHT
 
 	
+var lifetime := 10.0
+
 func _physics_process(delta: float) -> void:
+	lifetime -= delta
+	if lifetime <= 0:
+		queue_free()
 	velocity = direction * SPEED
-	var anim = get_anim('walk',direction)
+	var anim = get_anim('walk', direction)
 	move_and_slide()
 	animate(anim)
 

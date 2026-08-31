@@ -17,6 +17,23 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_0uig7"]
+resource_name = "idle-back"
+length = 0.8333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.16666667, 0.43333334, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
 [sub_resource type="Animation" id="Animation_m3p7k"]
 resource_name = "idle-front"
 length = 0.6666667
@@ -74,6 +91,7 @@ resource_name = "spawn"
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jw18l"]
 _data = {
 &"RESET": SubResource("Animation_6attn"),
+&"idle-back": SubResource("Animation_0uig7"),
 &"idle-front": SubResource("Animation_m3p7k"),
 &"idle-left": SubResource("Animation_mbg6f"),
 &"idle-right": SubResource("Animation_y63kg"),
@@ -116,6 +134,7 @@ vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201240863]
 position = Vector2(0, 6)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_m3p7k")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1630002395]

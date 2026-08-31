@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 350.0
 const friction = 100
 
 var last_dir := Vector2.DOWN

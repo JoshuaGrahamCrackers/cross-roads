@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://d2ageyopwyaj3"]
+[gd_scene format=3 uid="uid://bi0b8ba51k2eq"]
 
-[ext_resource type="Script" uid="uid://b6e35sqfl7ymx" path="res://scenes/credits.gd" id="1_j6beo"]
+[ext_resource type="Script" path="res://scenes/credits.gd" id="1_j6beo"]
 [ext_resource type="Texture2D" uid="uid://d4mq0wgys8soi" path="res://assets/Ghosts/Characters/Ghost/Blue/attack.png" id="1_pjc1l"]
 [ext_resource type="Texture2D" uid="uid://b3260ne2ajl25" path="res://assets/Spritesheets (1)/Spritesheet_without_Shadows.png" id="2_j6beo"]
-[ext_resource type="PackedScene" uid="uid://cu3bahs8y3oy7" path="res://assets/torch.tscn" id="3_4av4j"]
+[ext_resource type="PackedScene" uid="uid://bcwwwq7wmu8lk" path="res://assets/torch.tscn" id="3_4av4j"]
 [ext_resource type="Texture2D" uid="uid://oafqbmy0vgds" path="res://assets/RF_Catacombs_v1.0/candleB_04.png" id="4_5em78"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h30m1"]
@@ -88,7 +88,7 @@ theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_pjc1l")
-text = "Harry Aliev
+text = "H. Aliev
 "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2043974039]
@@ -123,6 +123,15 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_3mii5")
 theme_override_font_sizes/font_size = 30
 text = "Lyinia Design"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="HBoxContainer" unique_id=1049117969]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "|Yuki"
 horizontal_alignment = 1
 vertical_alignment = 1
 

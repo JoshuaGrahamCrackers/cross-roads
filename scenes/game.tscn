@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://4vurypk5mged" path="res://ghost.tscn" id="5_iywne"]
 [ext_resource type="Script" uid="uid://cf84xcvd7n46a" path="res://scenes/timer.gd" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d1oyi7xaqtd5q" path="res://block_ghost.tscn" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://dxcm5l5k440e7" path="res://score.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://gxyxqly26yap" path="res://detection.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cbqx1lt36m0xa" path="res://fat_ghost.tscn" id="12_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -4780,7 +4783,7 @@ size = Vector2(91.99463, 67.83325)
 y_sort_enabled = true
 script = ExtResource("1_iywne")
 metadata/_edit_horizontal_guides_ = [548.0, -749.0, -750.0, 11.0]
-metadata/_edit_vertical_guides_ = [1644.0, 64.0]
+metadata/_edit_vertical_guides_ = [1644.0, -2.0]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1884422127]
 color = Color(0.5502949, 0.4992711, 0.55034417, 1)
@@ -4951,10 +4954,15 @@ position = Vector2(495, 50)
 [node name="Chars" type="Node2D" parent="." unique_id=1914160997]
 y_sort_enabled = true
 
+[node name="ghost" parent="Chars" unique_id=372956191 instance=ExtResource("12_kvuet")]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(130, 0)
+
 [node name="player" parent="Chars" unique_id=439305841 instance=ExtResource("1_uwrxv")]
 z_index = 4
 y_sort_enabled = true
-position = Vector2(504, 440)
+position = Vector2(882, 55)
 
 [node name="Ghosts" type="Node2D" parent="Chars" unique_id=1533941391]
 z_index = 5
@@ -4971,6 +4979,8 @@ y_sort_enabled = true
 [node name="blockGhost" parent="Chars/Blockers" unique_id=288505300 instance=ExtResource("7_gee14")]
 position = Vector2(494.4124, 119.34381)
 
+[node name="FatGhosts" type="Node2D" parent="Chars" unique_id=1897467636]
+
 [node name="Timers" type="Node" parent="." unique_id=322851718]
 
 [node name="MoveGhostTimer" type="Timer" parent="Timers" unique_id=307997627]
@@ -4978,7 +4988,31 @@ autostart = true
 script = ExtResource("6_p57ef")
 
 [node name="BlockGhostTimer" type="Timer" parent="Timers" unique_id=693358794]
+
+[node name="EscalateTimer" type="Timer" parent="Timers" unique_id=1818863666]
+wait_time = 6.5
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1545065909]
+
+[node name="Score" parent="CanvasLayer" unique_id=1097348965 instance=ExtResource("9_0tnpc")]
+position = Vector2(574, 29.723)
+scale = Vector2(2, 2)
+
+[node name="FatGhostDetect" type="Node2D" parent="." unique_id=946942752]
+
+[node name="detection" parent="FatGhostDetect" unique_id=427225847 instance=ExtResource("10_vtaks")]
+position = Vector2(937, 427)
+
+[node name="detection2" parent="FatGhostDetect" unique_id=2032916572 instance=ExtResource("10_vtaks")]
+position = Vector2(952, 23)
+
+[node name="detection3" parent="FatGhostDetect" unique_id=799245107 instance=ExtResource("10_vtaks")]
+position = Vector2(918, -390)
 
 [connection signal="timeout" from="Timers/MoveGhostTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/BlockGhostTimer" to="." method="_on_block_ghost_timer_timeout"]
+[connection signal="timeout" from="Timers/EscalateTimer" to="." method="_on_escalate_timer_timeout"]
+[connection signal="body_entered" from="FatGhostDetect/detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="FatGhostDetect/detection2" to="." method="_on_detection_2_body_entered"]
+[connection signal="body_entered" from="FatGhostDetect/detection3" to="." method="_on_detection_3_body_entered"]
