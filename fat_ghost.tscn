@@ -88,8 +88,8 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0.0456
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6attn"]
 gradient = SubResource("Gradient_f1vdh")
 fill = 1
-fill_from = Vector2(0.55270654, 0.64102566)
-fill_to = Vector2(0.75213677, 0.36752138)
+fill_from = Vector2(0.4871795, 0.55270654)
+fill_to = Vector2(0.05698006, 0.5470086)
 
 [node name="ghost" type="CharacterBody2D" unique_id=845334816]
 collision_layer = 4
@@ -108,7 +108,7 @@ hframes = 4
 vframes = 3
 
 [node name="KillRange" type="Area2D" parent="." unique_id=678473237]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 collision_layer = 4
 collision_mask = 2
 
@@ -117,8 +117,8 @@ scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_6attn")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=432182199]
-position = Vector2(-9.999988, -30.999992)
-scale = Vector2(3.2500005, 4.0000005)
+position = Vector2(-5.000001, -14.999998)
+scale = Vector2(4.03125, 5.125)
 color = Color(0.8039216, 0, 0, 1)
 energy = 1.25
 shadow_color = Color(0, 0, 0, 1)

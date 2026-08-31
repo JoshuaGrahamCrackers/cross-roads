@@ -1,8 +1,11 @@
 extends Node2D
 @onready var ghost_container = $Chars/Ghosts
 @onready var blocker_container = $Chars/Blockers
+@onready var fatghost_container = $Chars/FatGhosts
+@onready var fat_spawn_node = $"fat-spawn" 
 var ghost_scene = preload("res://ghost.tscn")
 var blocker_scene = preload("res://block_ghost.tscn")
+var fat_ghost_scene = preload("res://fat_ghost.tscn")
 var diffLevel = 1
 
 var playerLane=1;
@@ -47,12 +50,10 @@ func _spawn_ghost_at(marker: Node2D, side: String, scene: PackedScene, container
 	unit.global_position = marker.global_position
 	unit.set_direction(OPPOSITE_DIR[side])
 	container.add_child(unit)
-	print("[GHOST] spawned at marker=", marker.name, " unit=", unit.name)
 
 func _spawn_ghost(scene: PackedScene, container: Node) -> void:
 	var side: String = SIDES.pick_random()
 	var free_markers = _get_free_ghost_markers(side)
-	print("[GHOST] side=", side, " free=", free_markers.size())
 	if free_markers.is_empty():
 		push_warning("No free markers available for side: " + side)
 		return
@@ -64,7 +65,6 @@ func _spawn_blocker(scene: PackedScene, container: Node) -> void:
 	var group_name := side + "-blocker"
 	var all_markers := get_tree().get_nodes_in_group(group_name)
 	var free_markers = all_markers.filter(func(m): return not occupied_markers.has(m))
-	print("[BLOCKER] side=", group_name, " free=", free_markers.size())
 	if free_markers.is_empty():
 		push_warning("No free markers available for side: " + group_name)
 		return
@@ -75,11 +75,9 @@ func _spawn_blocker(scene: PackedScene, container: Node) -> void:
 	unit.set_direction(OPPOSITE_DIR[side])
 	unit.tree_exited.connect(_on_unit_freed.bind(random_marker))
 	container.add_child(unit)
-	print("[BLOCKER] spawned at marker=", random_marker.name, " unit=", unit.name)
 
 func _on_unit_freed(marker: Node2D) -> void:
 	occupied_markers.erase(marker)
-	print("[FREED] marker=", marker.name, " occupied_remaining=", occupied_markers.size())
 
 func _on_timer_timeout() -> void:
 	var spawn_count = 1 + int(diffLevel / 5)
@@ -131,7 +129,6 @@ func _sandwich_y() -> void:
 	
 	_spawn_ghost_at(up_marker, "up", ghost_scene, ghost_container)
 	_spawn_ghost_at(down_marker, "down", ghost_scene, ghost_container)
-	print("[SANDWICH_Y] lane=", lane, " up=", up_marker.name, " down=", down_marker.name)
 	
 	sandwich_lane_cooldown[lane] = true
 	get_tree().create_timer(SANDWICH_LANE_COOLDOWN_TIME).timeout.connect(func():
@@ -141,11 +138,32 @@ func _sandwich_y() -> void:
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	playerLane=1
+	print("[LANE] entered zone 1, playerLane=", playerLane)
 
 
 func _on_detection_2_body_entered(body: Node2D) -> void:
 	playerLane=2
+	print("[LANE] entered zone 2, playerLane=", playerLane)
 
 
 func _on_detection_3_body_entered(body: Node2D) -> void:
 	playerLane=3
+	print("[LANE] entered zone 3, playerLane=", playerLane)
+
+func _input(event: InputEvent) -> void:
+	# TEMP TEST ONLY — remove when done testing
+	if event is InputEventKey and event.pressed and event.keycode == KEY_K:
+		_test_spawn_fat_ghost()
+
+func _test_spawn_fat_ghost() -> void:
+	var marker_name = "left" + str(playerLane)
+	var marker = fat_spawn_node.get_node_or_null(marker_name)
+	
+	if marker == null:
+		push_warning("TEST: No fat ghost marker found: " + marker_name)
+		return
+	
+	var unit = fat_ghost_scene.instantiate()
+	unit.global_position = marker.global_position
+	unit.set_direction(OPPOSITE_DIR["left"])
+	fatghost_container.add_child(unit)

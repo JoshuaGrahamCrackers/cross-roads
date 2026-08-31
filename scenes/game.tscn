@@ -4951,6 +4951,29 @@ position = Vector2(486.64957, -289.70154)
 [node name="bottomA2" type="Marker2D" parent="blocker-spawn" unique_id=399960658 groups=["down-blocker"]]
 position = Vector2(495, 50)
 
+[node name="fat-spawn" type="Node2D" parent="." unique_id=855074674]
+
+[node name="left1" type="Marker2D" parent="fat-spawn" unique_id=1599622685]
+position = Vector2(40.435, -420)
+
+[node name="left2" type="Marker2D" parent="fat-spawn" unique_id=561450003]
+position = Vector2(40.435, 0)
+
+[node name="left3" type="Marker2D" parent="fat-spawn" unique_id=205757369]
+position = Vector2(40.435, 400)
+
+[node name="right1" type="Marker2D" parent="fat-spawn" unique_id=951566212]
+position = Vector2(1700, -420)
+scale = Vector2(4.727291, 1)
+
+[node name="right2" type="Marker2D" parent="fat-spawn" unique_id=260836288]
+position = Vector2(1700, 0)
+scale = Vector2(4.727291, 1)
+
+[node name="right3" type="Marker2D" parent="fat-spawn" unique_id=819919811]
+position = Vector2(1700, 400)
+scale = Vector2(4.727291, 1)
+
 [node name="Chars" type="Node2D" parent="." unique_id=1914160997]
 y_sort_enabled = true
 
@@ -4980,6 +5003,7 @@ y_sort_enabled = true
 position = Vector2(494.4124, 119.34381)
 
 [node name="FatGhosts" type="Node2D" parent="Chars" unique_id=1897467636]
+z_index = 3
 
 [node name="Timers" type="Node" parent="." unique_id=322851718]
 
@@ -5002,13 +5026,13 @@ scale = Vector2(2, 2)
 [node name="FatGhostDetect" type="Node2D" parent="." unique_id=946942752]
 
 [node name="detection" parent="FatGhostDetect" unique_id=427225847 instance=ExtResource("10_vtaks")]
-position = Vector2(937, 427)
+position = Vector2(848, -359)
 
 [node name="detection2" parent="FatGhostDetect" unique_id=2032916572 instance=ExtResource("10_vtaks")]
 position = Vector2(952, 23)
 
 [node name="detection3" parent="FatGhostDetect" unique_id=799245107 instance=ExtResource("10_vtaks")]
-position = Vector2(918, -390)
+position = Vector2(877, 471)
 
 [connection signal="timeout" from="Timers/MoveGhostTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/BlockGhostTimer" to="." method="_on_block_ghost_timer_timeout"]
