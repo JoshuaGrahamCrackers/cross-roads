@@ -3,10 +3,16 @@ extends Node2D
 @onready var blocker_container = $Chars/Blockers
 @onready var fatghost_container = $Chars/FatGhosts
 @onready var fat_spawn_node = $"fat-spawn"
+@onready var player = $Chars/player
+
 var ghost_scene = preload("res://ghost.tscn")
 var blocker_scene = preload("res://block_ghost.tscn")
 var fat_ghost_scene = preload("res://fat_ghost.tscn")
 var diffLevel = 1
+var canSpawnFatGhost = false
+var canSpawnSandwich = false
+var canSpawnBlock = false
+
 
 var playerLane = 1
 
@@ -35,9 +41,8 @@ const GHOST_COOLDOWN_TIME := 0.4  # seconds before a marker can be reused by a g
 var sandwich_lane_cooldown := {}  # lane number -> true (temporary)
 const SANDWICH_LANE_COOLDOWN_TIME := 4.0  # seconds before the same lane can sandwich again
 
-# Fat ghost: cooldown so it doesn't spawn every single tick once unlocked
-const FAT_GHOST_COOLDOWN := 8.0  # seconds between fat ghost spawns
-var last_fat_ghost_time := -999.0
+func _ready():
+	player.died.connect(endGame)
 
 func _get_free_ghost_markers(side: String) -> Array:
 	var all_markers := get_tree().get_nodes_in_group(side)
@@ -85,16 +90,15 @@ func _on_unit_freed(marker: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	var spawn_count = 1 + int(diffLevel / 5)
-	var time_now = Time.get_ticks_msec() / 1000.0
-	
-	if diffLevel >= 3 and time_now - last_fat_ghost_time > FAT_GHOST_COOLDOWN:
-		_spawn_fat_ghost()
-		last_fat_ghost_time = time_now
-	
-	if diffLevel >= 4:
+
+	if canSpawnSandwich:
 		var sandwich_chance = min(0.3, (diffLevel - 3) * 0.1)  # starts at 10%, +10% per level, capped at 30%
 		if randf() < sandwich_chance:
 			_sandwich_y()
+
+	if canSpawnBlock and $Timers/BlockGhostTimer.is_stopped():
+		$Timers/BlockGhostTimer.start()
+		
 	
 	for i in spawn_count:
 		_spawn_ghost(ghost_scene, ghost_container)
@@ -105,9 +109,27 @@ func _on_block_ghost_timer_timeout() -> void:
 func _on_escalate_timer_timeout() -> void:
 	if diffLevel == 1:
 		$Timers/BlockGhostTimer.start()
+	
 	$Timers/MoveGhostTimer.wait_time = max(0.5, $Timers/MoveGhostTimer.wait_time - 0.1 * diffLevel)
 	$Timers/BlockGhostTimer.wait_time = max(0.8, $Timers/BlockGhostTimer.wait_time - 0.1 * diffLevel)
-	diffLevel = diffLevel + 1
+
+	if diffLevel == 2:
+		canSpawnFatGhost = true
+		$Timers/FatGhostTimer.start()
+		print("Difficulty %d: fat ghosts unlocked" % diffLevel)
+
+	if diffLevel == 3:
+		canSpawnSandwich = true
+		print("Difficulty %d: sandwich pattern unlocked" % diffLevel)
+
+	print("Difficulty %d: move ghost interval now %.2fs, block ghost interval now %.2fs" % [
+		diffLevel,
+		$Timers/MoveGhostTimer.wait_time,
+		$Timers/BlockGhostTimer.wait_time
+	])
+
+	if diffLevel < 5:
+		diffLevel = diffLevel + 1
 
 func _get_marker_by_name(group: String, marker_name: String) -> Node2D:
 	var markers = get_tree().get_nodes_in_group(group)
@@ -136,8 +158,14 @@ func _sandwich_y() -> void:
 		push_warning("Sandwich lane busy: " + str(lane))
 		return
 	
+	# Spawn the first ghost immediately
 	_spawn_ghost_at(up_marker, "up", ghost_scene, ghost_container)
-	_spawn_ghost_at(down_marker, "down", ghost_scene, ghost_container)
+	
+	# Spawn the second ghost after a short delay, giving the player time to react
+	var sandwich_delay := 0.6  # tweak to taste — try 0.5-1.0s
+	get_tree().create_timer(sandwich_delay).timeout.connect(func():
+		_spawn_ghost_at(down_marker, "down", ghost_scene, ghost_container)
+	)
 	
 	sandwich_lane_cooldown[lane] = true
 	get_tree().create_timer(SANDWICH_LANE_COOLDOWN_TIME).timeout.connect(func():
@@ -156,8 +184,7 @@ func _on_detection_3_body_entered(body: Node2D) -> void:
 # --- Fat ghost: spawns automatically from a random side (left/right) at a random lane ---
 func _spawn_fat_ghost() -> void:
 	var side: String = ["left", "right"].pick_random()
-	var lane := randi_range(1, 3)
-	var marker_name = side + str(lane)
+	var marker_name = side + str(playerLane)
 	
 	var marker = fat_spawn_node.get_node_or_null(marker_name)
 	
@@ -169,3 +196,20 @@ func _spawn_fat_ghost() -> void:
 	unit.global_position = marker.global_position
 	unit.set_direction(OPPOSITE_DIR[side])
 	fatghost_container.add_child(unit)
+	
+func endGame()->void:
+	$CanvasLayer/Score/Timer.stop()
+	$Timers/MoveGhostTimer.stop()
+	$Timers/BlockGhostTimer.stop()
+	$Timers/FatGhostTimer.stop()
+	$CanvasLayer/GameOver.visible = true
+
+		
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("restart"):
+		get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+func _on_fat_ghost_timer_timeout() -> void:
+	if canSpawnFatGhost:
+		_spawn_fat_ghost()

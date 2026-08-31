@@ -77,9 +77,8 @@ _data = {
 &"walk-right": SubResource("Animation_hiw70")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6attn"]
-radius = 13.0
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6attn"]
+size = Vector2(36.5, 14.5)
 
 [sub_resource type="Gradient" id="Gradient_f1vdh"]
 offsets = PackedFloat32Array(0.084033616, 0.3159664, 0.59159666, 0.8957983, 0.9764706)
@@ -91,7 +90,7 @@ fill = 1
 fill_from = Vector2(0.55270654, 0.64102566)
 fill_to = Vector2(0.75213677, 0.36752138)
 
-[node name="ghost" type="CharacterBody2D" unique_id=845334816]
+[node name="ghost" type="CharacterBody2D" unique_id=845334816 groups=["ghost-move"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_6attn")
@@ -108,11 +107,13 @@ hframes = 4
 vframes = 3
 
 [node name="KillRange" type="Area2D" parent="." unique_id=678473237]
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillRange" unique_id=2060354479]
-shape = SubResource("CapsuleShape2D_6attn")
+position = Vector2(-0.25, 6.5)
+shape = SubResource("RectangleShape2D_6attn")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=432182199]
 position = Vector2(-5.999999, -18)

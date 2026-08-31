@@ -37,3 +37,8 @@ func animate(anim):
 
 	if $AnimationPlayer.current_animation != anim:
 		$AnimationPlayer.play(anim)
+		
+func _on_kill_range_body_entered(body: Node) -> void:
+	print("dead")
+	if body.is_in_group("player"):
+		body.die()

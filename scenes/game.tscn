@@ -6,10 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dj6tm5yuvl8di" path="res://assets/RF_Catacombs_v1.0/mainlevbuild.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bcwwwq7wmu8lk" path="res://assets/torch.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://4vurypk5mged" path="res://ghost.tscn" id="5_iywne"]
-[ext_resource type="Script" uid="uid://cf84xcvd7n46a" path="res://scenes/timer.gd" id="6_p57ef"]
+[ext_resource type="Script" path="res://scenes/timer.gd" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d1oyi7xaqtd5q" path="res://block_ghost.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://dxcm5l5k440e7" path="res://score.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://gxyxqly26yap" path="res://detection.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://c26mak3nnfsv5" path="res://gameOver.tscn" id="11_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cbqx1lt36m0xa" path="res://fat_ghost.tscn" id="12_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
@@ -4898,13 +4899,13 @@ position = Vector2(418.95807, -388.40103)
 position = Vector2(418.95807, 8)
 
 [node name="rightC" type="Marker2D" parent="blocker-spawn" unique_id=1528144448 groups=["right-blocker"]]
-position = Vector2(418.95807, 421)
+position = Vector2(379, 421)
 
 [node name="leftA" type="Marker2D" parent="blocker-spawn" unique_id=696195430 groups=["left-blocker"]]
 position = Vector2(565, -388.40103)
 
 [node name="leftB" type="Marker2D" parent="blocker-spawn" unique_id=361202614 groups=["left-blocker"]]
-position = Vector2(565, 8)
+position = Vector2(625, 8)
 
 [node name="leftC" type="Marker2D" parent="blocker-spawn" unique_id=1319844110 groups=["left-blocker"]]
 position = Vector2(565, 421)
@@ -4987,7 +4988,7 @@ z_index = 4
 y_sort_enabled = true
 position = Vector2(882, 55)
 
-[node name="Ghosts" type="Node2D" parent="Chars" unique_id=1533941391]
+[node name="Ghosts" type="Node2D" parent="Chars" unique_id=1533941391 groups=["ghost-move"]]
 z_index = 5
 z_as_relative = false
 y_sort_enabled = true
@@ -5017,11 +5018,18 @@ script = ExtResource("6_p57ef")
 wait_time = 6.5
 autostart = true
 
+[node name="FatGhostTimer" type="Timer" parent="Timers" unique_id=1429320247]
+wait_time = 4.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1545065909]
 
 [node name="Score" parent="CanvasLayer" unique_id=1097348965 instance=ExtResource("9_0tnpc")]
 position = Vector2(574, 29.723)
 scale = Vector2(2, 2)
+
+[node name="GameOver" parent="CanvasLayer" unique_id=1327198462 instance=ExtResource("11_dinhu")]
+visible = false
+position = Vector2(570.70654, 154.69675)
 
 [node name="FatGhostDetect" type="Node2D" parent="." unique_id=946942752]
 
@@ -5037,6 +5045,7 @@ position = Vector2(877, 471)
 [connection signal="timeout" from="Timers/MoveGhostTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/BlockGhostTimer" to="." method="_on_block_ghost_timer_timeout"]
 [connection signal="timeout" from="Timers/EscalateTimer" to="." method="_on_escalate_timer_timeout"]
+[connection signal="timeout" from="Timers/FatGhostTimer" to="." method="_on_fat_ghost_timer_timeout"]
 [connection signal="body_entered" from="FatGhostDetect/detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_entered" from="FatGhostDetect/detection2" to="." method="_on_detection_2_body_entered"]
 [connection signal="body_entered" from="FatGhostDetect/detection3" to="." method="_on_detection_3_body_entered"]

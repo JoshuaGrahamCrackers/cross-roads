@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 350.0
+signal died
+const SPEED = 400.0
 const friction = 100
 
 var last_dir := Vector2.DOWN
@@ -10,10 +11,10 @@ var dev_mode := true
 var noclip := false
 
 
-func _ready():
+#func _ready():
 
-	for ghost in get_tree().get_nodes_in_group("ghost"):
-		ghost.player_attacked.connect(die)
+	#for ghost in get_tree().get_nodes_in_group("ghost"):
+		#ghost.player_attacked.connect(die)
 
 
 func _physics_process(delta: float) -> void:
@@ -65,14 +66,14 @@ func _physics_process(delta: float) -> void:
 
 
 func die():
-
 	if dead:
 		return
-
 	dead = true
 	velocity = Vector2.ZERO
-
-	$AnimationPlayer.play(get_anim("die", last_dir))
+	var anim = get_anim("die", last_dir)
+	print("Trying to play animation: ", anim)  # ADD THIS
+	$AnimationPlayer.play(anim)
+	died.emit()
 
 
 func get_anim(prefix: String, dir: Vector2) -> String:

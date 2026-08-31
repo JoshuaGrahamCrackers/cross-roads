@@ -33,6 +33,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_smehm"]
 resource_name = "die-back"
+length = 1.1333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,7 +41,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"times": PackedFloat32Array(0.033333335, 0.2, 0.33333334, 0.5, 0.6666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [78, 79, 80, 81, 82]
@@ -55,7 +56,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"times": PackedFloat32Array(0, 0.16666667, 0.36666667, 0.6, 0.76666665),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [72, 73, 74, 75, 76]
@@ -70,7 +71,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.53333336, 0.76666665),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [90, 91, 92, 93, 94]
@@ -85,7 +86,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [84, 86, 87, 88]
@@ -240,7 +241,7 @@ _data = {
 &"walk-right": SubResource("Animation_f1ej7")
 }
 
-[node name="player" type="CharacterBody2D" unique_id=439305841]
+[node name="player" type="CharacterBody2D" unique_id=439305841 groups=["player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_3vyb7")
