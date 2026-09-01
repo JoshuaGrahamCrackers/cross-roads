@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://f6qdcahwthlt"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_4hy44"]
+[ext_resource type="Script" uid="uid://dot8pv0jot7nm" path="res://menu.gd" id="1_4hy44"]
 [ext_resource type="Texture2D" uid="uid://d4mq0wgys8soi" path="res://assets/Ghosts/Characters/Ghost/Blue/attack.png" id="1_mae5d"]
 [ext_resource type="PackedScene" uid="uid://bcwwwq7wmu8lk" path="res://assets/torch.tscn" id="2_4hy44"]
 [ext_resource type="Texture2D" uid="uid://b3260ne2ajl25" path="res://assets/Spritesheets (1)/Spritesheet_without_Shadows.png" id="3_ytr4m"]
@@ -77,21 +77,23 @@ text = "Credits
 "
 
 [node name="Attack2" type="Sprite2D" parent="." unique_id=1536377916]
-position = Vector2(446.25003, 420.00006)
+position = Vector2(717, 460)
 scale = Vector2(6.703126, 6.7187495)
 texture = ExtResource("1_mae5d")
+flip_h = true
 hframes = 4
 vframes = 3
 frame = 5
 
 [node name="torch" parent="." unique_id=759864548 instance=ExtResource("2_4hy44")]
-position = Vector2(681, 361)
+position = Vector2(588, 361)
 scale = Vector2(4, 4)
 
 [node name="knight" type="Sprite2D" parent="." unique_id=1645724128]
-position = Vector2(557.7502, 372.5)
+position = Vector2(508, 417.99997)
 scale = Vector2(7.0625, 6.0156255)
 texture = ExtResource("3_ytr4m")
+flip_h = true
 hframes = 6
 vframes = 18
 frame = 51
@@ -113,6 +115,9 @@ theme_override_font_sizes/font_size = 96
 text = "Night Knight"
 label_settings = SubResource("LabelSettings_kelro")
 horizontal_alignment = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1918440231]
+color = Color(0.806923, 0.7725768, 0.80673385, 0.99215686)
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

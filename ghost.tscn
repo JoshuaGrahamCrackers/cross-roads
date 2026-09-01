@@ -78,7 +78,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6attn"]
-size = Vector2(36.5, 14.5)
+size = Vector2(39.5, 14.5)
 
 [sub_resource type="Gradient" id="Gradient_f1vdh"]
 offsets = PackedFloat32Array(0.084033616, 0.3159664, 0.59159666, 0.8957983, 0.9764706)

@@ -4,6 +4,7 @@ extends Node2D
 @onready var fatghost_container = $Chars/FatGhosts
 @onready var fat_spawn_node = $"fat-spawn"
 @onready var player = $Chars/player
+@onready var canvas_modulate = $CanvasModulate
 
 var ghost_scene = preload("res://ghost.tscn")
 var blocker_scene = preload("res://block_ghost.tscn")
@@ -203,6 +204,8 @@ func endGame()->void:
 	$Timers/BlockGhostTimer.stop()
 	$Timers/FatGhostTimer.stop()
 	$CanvasLayer/GameOver.visible = true
+	var tween = create_tween()
+	tween.tween_property(canvas_modulate, "color", Color(0.15, 0.15, 0.15), 0.5)
 
 		
 func _process(delta: float) -> void:
