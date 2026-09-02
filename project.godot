@@ -15,6 +15,11 @@ run/main_scene="uid://b2p11ptmcxgj7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicPlayer="*uid://ye2mfr8n8red"
+MasterSound="*uid://d0d3sm3ary247"
+
 [global_group]
 
 player=""

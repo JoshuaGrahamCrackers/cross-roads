@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 500.0
 const friction = 100
 var direction:=Vector2.RIGHT
 
@@ -42,13 +42,3 @@ func _on_kill_range_body_entered(body: Node) -> void:
 	print("dead")
 	if body.is_in_group("player"):
 		body.die()
-
-func _on_noise_body_entered(body: Node2D) -> void:
-	$audio.play()
-	$audio/audioTimer.start(4.0)  # stops after 2 seconds — adjust to taste
-	
-
-
-
-func _on_audio_timer_timeout() -> void:
-	$audio.stop()

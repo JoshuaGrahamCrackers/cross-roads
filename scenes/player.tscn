@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chtxfthry1ini" path="res://node_2d.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://bo01tv2yxsi1u" path="res://assets/Spritesheets (1)/Spritesheet_with_Shadows.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://op14xxy043w0" path="res://assets/deathSoundFinal.mp3" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(18, 17.5)
@@ -273,3 +274,6 @@ texture = SubResource("GradientTexture2D_qhqgy")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=247477888]
 libraries/ = SubResource("AnimationLibrary_dqkch")
 autoplay = &"idle-front"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1069629964]
+stream = ExtResource("3_qhqgy")

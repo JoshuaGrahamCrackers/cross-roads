@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxcm5l5k440e7" path="res://score.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://gxyxqly26yap" path="res://detection.tscn" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://c26mak3nnfsv5" path="res://gameOver.tscn" id="11_dinhu"]
+[ext_resource type="AudioStream" uid="uid://d0qrtoe8rl5j" path="res://assets/horn.mp3" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cbqx1lt36m0xa" path="res://fat_ghost.tscn" id="12_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
@@ -4786,6 +4787,7 @@ metadata/_edit_horizontal_guides_ = [548.0, -749.0, -750.0, 11.0]
 metadata/_edit_vertical_guides_ = [1644.0, -2.0]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1884422127]
+visible = false
 color = Color(0.5502949, 0.4992711, 0.55034417, 1)
 
 [node name="Terrain" type="Node2D" parent="." unique_id=575875345]
@@ -4853,7 +4855,6 @@ position = Vector2(213, 535)
 shape = SubResource("RectangleShape2D_iywne")
 
 [node name="Ghost-Spawn" type="Node2D" parent="." unique_id=2109025667]
-visible = false
 
 [node name="right1" type="Marker2D" parent="Ghost-Spawn" unique_id=490896296 groups=["right"]]
 position = Vector2(1729, 69)
@@ -4885,10 +4886,10 @@ position = Vector2(1267, 695)
 [node name="up1" type="Marker2D" parent="Ghost-Spawn" unique_id=793807817 groups=["up"]]
 position = Vector2(498, -722)
 
-[node name="up2" type="Marker2D" parent="Ghost-Spawn" unique_id=65851433 groups=["down", "left", "right", "up"]]
+[node name="up2" type="Marker2D" parent="Ghost-Spawn" unique_id=65851433 groups=["up"]]
 position = Vector2(878, -722)
 
-[node name="up3" type="Marker2D" parent="Ghost-Spawn" unique_id=855267611 groups=["down", "left", "right", "up"]]
+[node name="up3" type="Marker2D" parent="Ghost-Spawn" unique_id=855267611 groups=["up"]]
 position = Vector2(1267, -722)
 
 [node name="blocker-spawn" type="Node2D" parent="." unique_id=1275727200]
@@ -5045,6 +5046,9 @@ position = Vector2(952, 23)
 
 [node name="detection3" parent="FatGhostDetect" unique_id=799245107 instance=ExtResource("10_vtaks")]
 position = Vector2(877, 471)
+
+[node name="fatGhostSpawnHorn" type="AudioStreamPlayer" parent="." unique_id=12140670]
+stream = ExtResource("12_dinhu")
 
 [connection signal="timeout" from="Timers/MoveGhostTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timers/BlockGhostTimer" to="." method="_on_block_ghost_timer_timeout"]

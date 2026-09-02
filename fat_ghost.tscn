@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbqx1lt36m0xa"]
 
-[ext_resource type="Script" uid="uid://o6600enlybuj" path="res://ghost.gd" id="1_8fhs6"]
+[ext_resource type="Script" uid="uid://bqgmbow0g3fkm" path="res://fat_ghost.gd" id="1_8fhs6"]
 [ext_resource type="Texture2D" uid="uid://bmt5amnim8u0e" path="res://assets/Ghosts/Characters/Ghost/Blue/walk.png" id="2_r27wt"]
 
 [sub_resource type="Animation" id="Animation_6attn"]

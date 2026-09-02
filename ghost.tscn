@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o6600enlybuj" path="res://ghost.gd" id="1_6attn"]
 [ext_resource type="Texture2D" uid="uid://bmt5amnim8u0e" path="res://assets/Ghosts/Characters/Ghost/Blue/walk.png" id="1_v5pp4"]
+[ext_resource type="AudioStream" uid="uid://frek6s28kc1v" path="res://assets/ghost.mp3" id="3_obmiq"]
 
 [sub_resource type="Animation" id="Animation_6attn"]
 length = 0.001
@@ -77,8 +78,11 @@ _data = {
 &"walk-right": SubResource("Animation_hiw70")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obmiq"]
+size = Vector2(168, 136)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6attn"]
-size = Vector2(39.5, 14.5)
+size = Vector2(51.25, 18.625)
 
 [sub_resource type="Gradient" id="Gradient_f1vdh"]
 offsets = PackedFloat32Array(0.084033616, 0.3159664, 0.59159666, 0.8957983, 0.9764706)
@@ -106,13 +110,20 @@ texture = ExtResource("1_v5pp4")
 hframes = 4
 vframes = 3
 
+[node name="Noise" type="Area2D" parent="." unique_id=396081648]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Noise" unique_id=1239632044]
+shape = SubResource("RectangleShape2D_obmiq")
+
 [node name="KillRange" type="Area2D" parent="." unique_id=678473237]
 scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillRange" unique_id=2060354479]
-position = Vector2(-0.25, 6.5)
+position = Vector2(0.875, 7.5)
 shape = SubResource("RectangleShape2D_6attn")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=432182199]
@@ -122,4 +133,11 @@ color = Color(0.42352942, 0.7882353, 1, 1)
 energy = 0.65
 texture = SubResource("GradientTexture2D_6attn")
 
+[node name="audio" type="AudioStreamPlayer2D" parent="." unique_id=1573235334]
+stream = ExtResource("3_obmiq")
+
+[node name="audioTimer" type="Timer" parent="audio" unique_id=1670445161]
+
+[connection signal="body_entered" from="Noise" to="." method="_on_noise_body_entered"]
 [connection signal="body_entered" from="KillRange" to="." method="_on_kill_range_body_entered"]
+[connection signal="timeout" from="audio/audioTimer" to="." method="_on_audio_timer_timeout"]

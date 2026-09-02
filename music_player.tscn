@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ye2mfr8n8red"]
+
+[ext_resource type="AudioStream" uid="uid://bd7nclkgotpjd" path="res://assets/backround.mp3" id="1_fvyft"]
+
+[node name="musicPlayer" type="Node2D" unique_id=2003742236]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1174916848]
+stream = ExtResource("1_fvyft")
+autoplay = true
+parameters/looping = true

@@ -11,7 +11,7 @@ var blocker_scene = preload("res://block_ghost.tscn")
 var fat_ghost_scene = preload("res://fat_ghost.tscn")
 var diffLevel = 1
 var canSpawnFatGhost = false
-var canSpawnSandwich = false
+# var canSpawnSandwich = false
 var canSpawnBlock = false
 
 
@@ -39,8 +39,8 @@ var ghost_cooldown := {}  # marker -> true (temporary)
 const GHOST_COOLDOWN_TIME := 0.4  # seconds before a marker can be reused by a ghost
 
 # Sandwich: per-lane cooldown so the same Y lane can't sandwich again immediately
-var sandwich_lane_cooldown := {}  # lane number -> true (temporary)
-const SANDWICH_LANE_COOLDOWN_TIME := 4.0  # seconds before the same lane can sandwich again
+# var sandwich_lane_cooldown := {}  # lane number -> true (temporary)
+# const SANDWICH_LANE_COOLDOWN_TIME := 4.0  # seconds before the same lane can sandwich again
 
 func _ready():
 	player.died.connect(endGame)
@@ -92,10 +92,10 @@ func _on_unit_freed(marker: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	var spawn_count = 1 + int(diffLevel / 5)
 
-	if canSpawnSandwich:
-		var sandwich_chance = min(0.3, (diffLevel - 3) * 0.1)  # starts at 10%, +10% per level, capped at 30%
-		if randf() < sandwich_chance:
-			_sandwich_y()
+	# if canSpawnSandwich:
+	# 	var sandwich_chance = min(0.3, (diffLevel - 3) * 0.1)  # starts at 10%, +10% per level, capped at 30%
+	# 	if randf() < sandwich_chance:
+	# 		_sandwich_y()
 
 	if canSpawnBlock and $Timers/BlockGhostTimer.is_stopped():
 		$Timers/BlockGhostTimer.start()
@@ -119,9 +119,9 @@ func _on_escalate_timer_timeout() -> void:
 		$Timers/FatGhostTimer.start()
 		print("Difficulty %d: fat ghosts unlocked" % diffLevel)
 
-	if diffLevel == 3:
-		canSpawnSandwich = true
-		print("Difficulty %d: sandwich pattern unlocked" % diffLevel)
+	# if diffLevel == 3:
+	# 	canSpawnSandwich = true
+	# 	print("Difficulty %d: sandwich pattern unlocked" % diffLevel)
 
 	print("Difficulty %d: move ghost interval now %.2fs, block ghost interval now %.2fs" % [
 		diffLevel,
@@ -140,38 +140,38 @@ func _get_marker_by_name(group: String, marker_name: String) -> Node2D:
 	return null
 
 # --- Sandwich pattern: pick a free lane (not on cooldown), spawn ghost at upX and downX ---
-func _sandwich_y() -> void:
-	var available_lanes = [1, 2, 3].filter(func(l): return not sandwich_lane_cooldown.has(l))
-	
-	if available_lanes.is_empty():
-		push_warning("All sandwich lanes on cooldown")
-		return
-	
-	var lane: int = available_lanes.pick_random()
-	
-	var up_marker = _get_marker_by_name("up", "up" + str(lane))
-	var down_marker = _get_marker_by_name("down", "down" + str(lane))
-	
-	if up_marker == null or down_marker == null:
-		push_warning("Sandwich markers not found for lane: " + str(lane))
-		return
-	if ghost_cooldown.has(up_marker) or ghost_cooldown.has(down_marker) or occupied_markers.has(up_marker) or occupied_markers.has(down_marker):
-		push_warning("Sandwich lane busy: " + str(lane))
-		return
-	
-	# Spawn the first ghost immediately
-	_spawn_ghost_at(up_marker, "up", ghost_scene, ghost_container)
-	
-	# Spawn the second ghost after a short delay, giving the player time to react
-	var sandwich_delay := 0.6  # tweak to taste — try 0.5-1.0s
-	get_tree().create_timer(sandwich_delay).timeout.connect(func():
-		_spawn_ghost_at(down_marker, "down", ghost_scene, ghost_container)
-	)
-	
-	sandwich_lane_cooldown[lane] = true
-	get_tree().create_timer(SANDWICH_LANE_COOLDOWN_TIME).timeout.connect(func():
-		sandwich_lane_cooldown.erase(lane)
-	)
+# func _sandwich_y() -> void:
+# 	var available_lanes = [1, 2, 3].filter(func(l): return not sandwich_lane_cooldown.has(l))
+# 	
+# 	if available_lanes.is_empty():
+# 		push_warning("All sandwich lanes on cooldown")
+# 		return
+# 	
+# 	var lane: int = available_lanes.pick_random()
+# 	
+# 	var up_marker = _get_marker_by_name("up", "up" + str(lane))
+# 	var down_marker = _get_marker_by_name("down", "down" + str(lane))
+# 	
+# 	if up_marker == null or down_marker == null:
+# 		push_warning("Sandwich markers not found for lane: " + str(lane))
+# 		return
+# 	if ghost_cooldown.has(up_marker) or ghost_cooldown.has(down_marker) or occupied_markers.has(up_marker) or occupied_markers.has(down_marker):
+# 		push_warning("Sandwich lane busy: " + str(lane))
+# 		return
+# 	
+# 	# Spawn the first ghost immediately
+# 	_spawn_ghost_at(up_marker, "up", ghost_scene, ghost_container)
+# 	
+# 	# Spawn the second ghost after a short delay, giving the player time to react
+# 	var sandwich_delay := 2  # tweak to taste — try 0.5-1.0s
+# 	get_tree().create_timer(sandwich_delay).timeout.connect(func():
+# 		_spawn_ghost_at(down_marker, "down", ghost_scene, ghost_container)
+# 	)
+# 	
+# 	sandwich_lane_cooldown[lane] = true
+# 	get_tree().create_timer(SANDWICH_LANE_COOLDOWN_TIME).timeout.connect(func():
+# 		sandwich_lane_cooldown.erase(lane)
+# 	)
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	playerLane = 1
@@ -188,11 +188,7 @@ func _spawn_fat_ghost() -> void:
 	var marker_name = side + str(playerLane)
 	
 	var marker = fat_spawn_node.get_node_or_null(marker_name)
-	
-	if marker == null:
-		push_warning("Fat ghost marker not found: " + marker_name)
-		return
-	
+	$fatGhostSpawnHorn.play()
 	var unit = fat_ghost_scene.instantiate()
 	unit.global_position = marker.global_position
 	unit.set_direction(OPPOSITE_DIR[side])

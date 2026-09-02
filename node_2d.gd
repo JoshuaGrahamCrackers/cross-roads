@@ -71,7 +71,7 @@ func die():
 	dead = true
 	velocity = Vector2.ZERO
 	var anim = get_anim("die", last_dir)
-	print("Trying to play animation: ", anim)  # ADD THIS
+	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play(anim)
 	died.emit()
 
