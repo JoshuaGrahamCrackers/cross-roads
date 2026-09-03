@@ -36,10 +36,9 @@ corner_radius_bottom_left = 16
 
 [node name="credits" type="Control" unique_id=1399215795]
 layout_mode = 3
-anchor_right = 0.92300004
-anchor_bottom = 0.924
-offset_right = 99.70398
-offset_bottom = 117.247986
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j6beo")
@@ -48,15 +47,15 @@ metadata/_edit_horizontal_guides_ = [918.0]
 
 [node name="Panel" type="Panel" parent="." unique_id=1904479661]
 layout_mode = 0
-offset_right = 1210.0
-offset_bottom = 707.0
+offset_right = 1914.0
+offset_bottom = 1088.0
 
 [node name="Start" type="Button" parent="." unique_id=1879920467]
 layout_mode = 0
-offset_left = 55.5
-offset_top = 195.5
-offset_right = 1093.5
-offset_bottom = 237.5
+offset_left = 424.5
+offset_top = 425.5
+offset_right = 1462.5
+offset_bottom = 467.5
 theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
 theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
 theme_override_font_sizes/font_size = 30
@@ -65,10 +64,10 @@ text = "MERCIA INTERACTIVE"
 
 [node name="Start2" type="Button" parent="." unique_id=2337845]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 380.0
-offset_right = 1090.0
-offset_bottom = 422.0
+offset_left = 421.0
+offset_top = 610.0
+offset_right = 1459.0
+offset_bottom = 652.0
 theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
 theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
 theme_override_font_sizes/font_size = 30
@@ -80,10 +79,10 @@ text = "ART BY
 top_level = true
 material = SubResource("CanvasItemMaterial_pjc1l")
 layout_mode = 0
-offset_left = 59.0
-offset_top = 277.0
-offset_right = 1097.0
-offset_bottom = 327.0
+offset_left = 428.0
+offset_top = 507.0
+offset_right = 1466.0
+offset_bottom = 557.0
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
@@ -94,10 +93,10 @@ text = "H. Aliev
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2043974039]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 381.0
-offset_right = 1054.0
-offset_bottom = 528.0
+offset_left = 512.0
+offset_top = 611.0
+offset_right = 1423.0
+offset_bottom = 758.0
 alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer" unique_id=1489757748]
@@ -137,7 +136,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Attack2" type="Sprite2D" parent="." unique_id=331178789]
-position = Vector2(425, 553)
+position = Vector2(794, 899.625)
 scale = Vector2(6.6328144, 6.421874)
 texture = ExtResource("1_pjc1l")
 hframes = 4
@@ -145,12 +144,12 @@ vframes = 3
 frame = 4
 
 [node name="Screenshot20260831190308" type="Sprite2D" parent="." unique_id=48847583]
-position = Vector2(578.99994, 93)
+position = Vector2(933, 323)
 scale = Vector2(0.31410253, 0.4)
 texture = ExtResource("3_mah5v")
 
 [node name="knight" type="Sprite2D" parent="." unique_id=569761305]
-position = Vector2(714, 493)
+position = Vector2(1083, 839.625)
 scale = Vector2(6.546875, 6.1757813)
 texture = ExtResource("2_j6beo")
 hframes = 6
@@ -158,24 +157,24 @@ vframes = 18
 frame = 88
 
 [node name="torch" parent="." unique_id=759864548 instance=ExtResource("3_4av4j")]
-position = Vector2(379, 120)
+position = Vector2(748, 350)
 scale = Vector2(4, 4)
 
 [node name="torch2" parent="." unique_id=1940020236 instance=ExtResource("3_4av4j")]
-position = Vector2(779, 124)
+position = Vector2(1148, 354)
 scale = Vector2(4, 4)
 
 [node name="CandleB04" type="Sprite2D" parent="." unique_id=1662403270]
-position = Vector2(544, 570)
+position = Vector2(913, 916.625)
 scale = Vector2(4.153846, 4.0000014)
 texture = ExtResource("4_5em78")
 
 [node name="Back" type="Button" parent="." unique_id=450887871]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 542.0
-offset_right = 197.0
-offset_bottom = 637.0
+offset_left = 390.0
+offset_top = 888.625
+offset_right = 566.0
+offset_bottom = 983.625
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6beo")
 text = "<-----"
 

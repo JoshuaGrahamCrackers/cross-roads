@@ -10,15 +10,20 @@ config_version=5
 
 [application]
 
-config/name="CrossRoads"
-run/main_scene="uid://b2p11ptmcxgj7"
+config/name="Knight Night"
+run/main_scene="uid://f6qdcahwthlt"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://duko2mvfbt7wk"
 
 [autoload]
 
 MusicPlayer="*uid://ye2mfr8n8red"
 MasterSound="*uid://d0d3sm3ary247"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [global_group]
 

@@ -33,6 +33,7 @@ theme_override_font_sizes/font_size = 32
 text = "THE KNIGHTMARE ENDS!"
 label_settings = SubResource("LabelSettings_ytr4m")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="." unique_id=1129417517]
 anchors_preset = 7
@@ -51,3 +52,4 @@ theme_override_font_sizes/font_size = 32
 text = "PRESS <R> To Restart"
 label_settings = SubResource("LabelSettings_ytr4m")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

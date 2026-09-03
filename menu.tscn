@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dot8pv0jot7nm" path="res://menu.gd" id="1_4hy44"]
 [ext_resource type="Texture2D" uid="uid://d4mq0wgys8soi" path="res://assets/Ghosts/Characters/Ghost/Blue/attack.png" id="1_mae5d"]
 [ext_resource type="PackedScene" uid="uid://bcwwwq7wmu8lk" path="res://assets/torch.tscn" id="2_4hy44"]
-[ext_resource type="Texture2D" uid="uid://b3260ne2ajl25" path="res://assets/Spritesheets (1)/Spritesheet_without_Shadows.png" id="3_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://bo01tv2yxsi1u" path="res://assets/Spritesheets (1)/Spritesheet_with_Shadows.png" id="5_l48gv"]
 [ext_resource type="FontFile" uid="uid://bya1ex5qh2blx" path="res://assets/BoldPixels.ttf" id="5_ytr4m"]
 [ext_resource type="AudioStream" uid="uid://1ey84jqt1frf" path="res://assets/door.mp3" id="6_l48gv"]
 
@@ -21,7 +21,7 @@ variation_embolden = 0.61
 
 [sub_resource type="LabelSettings" id="LabelSettings_kelro"]
 font = ExtResource("5_ytr4m")
-font_size = 96
+font_size = 256
 outline_size = 2
 outline_color = Color(0.36667466, 0.36667466, 0.36667466, 1)
 shadow_size = 48
@@ -30,11 +30,10 @@ shadow_offset = Vector2(4, 4)
 
 [node name="Menu" type="Control" unique_id=312411386]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 7.0
-offset_bottom = -113.0
+anchor_right = 0.624
+anchor_bottom = 0.632
+offset_right = 728.9199
+offset_bottom = 284.43994
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -42,8 +41,8 @@ script = ExtResource("1_4hy44")
 
 [node name="Panel" type="Panel" parent="." unique_id=481952388]
 layout_mode = 0
-offset_right = 1210.0
-offset_bottom = 707.0
+offset_right = 2017.0
+offset_bottom = 1263.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1449825275]
 layout_mode = 1
@@ -52,12 +51,13 @@ anchor_left = 0.5
 anchor_top = 0.564
 anchor_right = 0.5
 anchor_bottom = 0.564
-offset_left = -520.5
-offset_top = -166.74002
-offset_right = 517.5
-offset_bottom = 319.25998
+offset_left = -714.29944
+offset_top = -67.388
+offset_right = -10.5
+offset_bottom = 158.112
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=312544613]
 layout_mode = 2
@@ -78,8 +78,8 @@ text = "Credits
 "
 
 [node name="Attack2" type="Sprite2D" parent="." unique_id=1536377916]
-position = Vector2(686, 430)
-scale = Vector2(6.625181, 6.5937486)
+position = Vector2(1305.0001, 883)
+scale = Vector2(15, 14.93)
 texture = ExtResource("1_mae5d")
 flip_h = true
 hframes = 4
@@ -87,29 +87,28 @@ vframes = 3
 frame = 5
 
 [node name="torch" parent="." unique_id=759864548 instance=ExtResource("2_4hy44")]
-position = Vector2(588, 321)
-scale = Vector2(5, 5)
+position = Vector2(928.00006, 140)
+scale = Vector2(10, 10)
 
-[node name="knight" type="Sprite2D" parent="." unique_id=1645724128]
-position = Vector2(345, 208.00003)
-scale = Vector2(6.895833, 5.5468755)
-texture = ExtResource("3_ytr4m")
-centered = false
-flip_h = true
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2049669269]
+position = Vector2(645, 876)
+scale = Vector2(18, 12.198)
+texture = ExtResource("5_l48gv")
 hframes = 6
-vframes = 18
-frame = 51
+vframes = 24
+frame = 63
 
 [node name="Label" type="Label" parent="." unique_id=1174539419]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -688.5
-offset_top = 54.0
-offset_right = 711.5
-offset_bottom = 483.0
+offset_left = -726.5
+offset_top = 187.0
+offset_right = 673.5
+offset_bottom = 616.0
 grow_horizontal = 2
+scale = Vector2(1.1, 1.1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_4hy44")

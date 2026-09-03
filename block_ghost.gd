@@ -28,7 +28,7 @@ func update_animation():
 
 	if direction == Vector2.RIGHT:
 
-		$Sprite2D.flip_h = true
+		$Sprite2D.flip_h = false
 		animate("idle-right")
 
 		# thinner + taller
@@ -36,7 +36,7 @@ func update_animation():
 
 
 	elif direction == Vector2.LEFT:
-		$Sprite2D.flip_h = false
+		$Sprite2D.flip_h = true
 		animate("idle-right")
 
 		# thinner + taller
