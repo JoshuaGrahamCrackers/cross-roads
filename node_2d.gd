@@ -23,14 +23,14 @@ func _physics_process(delta: float) -> void:
 		return
 
 
-	# CHEATS / NOCLIP
-	if dev_mode and Input.is_action_just_pressed("cheats"):
-
-		noclip = !noclip
-
-		$CollisionShape2D.disabled = noclip
-
-		print("noclip:", noclip)
+	## CHEATS / NOCLIP
+	#if dev_mode and Input.is_action_just_pressed("cheats"):
+#
+		#noclip = !noclip
+#
+		#$CollisionShape2D.disabled = noclip
+#
+		#print("noclip:", noclip)
 
 
 	var anim := ""
