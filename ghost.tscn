@@ -82,7 +82,7 @@ _data = {
 size = Vector2(168, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6attn"]
-size = Vector2(51.25, 18.625)
+size = Vector2(51.25, 25.5)
 
 [sub_resource type="Gradient" id="Gradient_f1vdh"]
 offsets = PackedFloat32Array(0.084033616, 0.3159664, 0.59159666, 0.8957983, 0.9764706)
@@ -123,7 +123,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillRange" unique_id=2060354479]
-position = Vector2(0.875, 7.5)
+position = Vector2(0.875, 7.75)
 shape = SubResource("RectangleShape2D_6attn")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=432182199]

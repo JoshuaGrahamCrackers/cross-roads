@@ -7,32 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://y65aurd1n3nu" path="res://assets/Screenshot 2026-08-31 190308.png" id="3_mah5v"]
 [ext_resource type="Texture2D" uid="uid://oafqbmy0vgds" path="res://assets/RF_Catacombs_v1.0/candleB_04.png" id="4_5em78"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h30m1"]
-bg_color = Color(0.5882353, 0, 0.003921569, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_size = 5
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pjc1l"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjc1l"]
-bg_color = Color(0.16078432, 0, 0.5921569, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_size = 5
-
 [sub_resource type="FontVariation" id="FontVariation_3mii5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6beo"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.19560789, 0.5941514, 0.9661252, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h30m1"]
+bg_color = Color(0.47843137, 0.12941177, 0.8509804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
 
 [node name="credits" type="Control" unique_id=1399215795]
 layout_mode = 3
@@ -42,64 +32,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_j6beo")
-metadata/_edit_vertical_guides_ = [-419.0, -357.0]
+metadata/_edit_vertical_guides_ = [23268.0]
 metadata/_edit_horizontal_guides_ = [918.0]
 
 [node name="Panel" type="Panel" parent="." unique_id=1904479661]
-layout_mode = 0
-offset_right = 1914.0
-offset_bottom = 1088.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1005.99976
+offset_top = -569.0
+offset_right = 1600.9998
+offset_bottom = 777.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Start" type="Button" parent="." unique_id=1879920467]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=2043974039]
 layout_mode = 0
-offset_left = 424.5
-offset_top = 425.5
-offset_right = 1462.5
-offset_bottom = 467.5
-theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
-theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
-text = "MERCIA INTERACTIVE"
-
-[node name="Start2" type="Button" parent="." unique_id=2337845]
-layout_mode = 0
-offset_left = 421.0
-offset_top = 610.0
-offset_right = 1459.0
-offset_bottom = 652.0
-theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
-theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
-text = "ART BY
-"
-
-[node name="Credits" type="Button" parent="." unique_id=1522352802]
-top_level = true
-material = SubResource("CanvasItemMaterial_pjc1l")
-layout_mode = 0
-offset_left = 428.0
-offset_top = 507.0
-offset_right = 1466.0
-offset_bottom = 557.0
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_pjc1l")
-text = "H. Aliev
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2043974039]
-layout_mode = 0
-offset_left = 512.0
-offset_top = 611.0
-offset_right = 1423.0
-offset_bottom = 758.0
+offset_left = 578.0
+offset_top = 640.0
+offset_right = 1489.0
+offset_bottom = 787.0
 alignment = 1
 
-[node name="Label3" type="Label" parent="HBoxContainer" unique_id=1489757748]
+[node name="Label3" type="Label" parent="Panel/HBoxContainer" unique_id=1489757748]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_3mii5")
@@ -108,7 +66,7 @@ text = "Snoblin "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer" unique_id=708811583]
+[node name="Label" type="Label" parent="Panel/HBoxContainer" unique_id=708811583]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_3mii5")
@@ -117,7 +75,7 @@ text = "|Szadi Art |"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="HBoxContainer" unique_id=1195244851]
+[node name="Label2" type="Label" parent="Panel/HBoxContainer" unique_id=1195244851]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_3mii5")
@@ -126,7 +84,7 @@ text = "Lyinia Design"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="HBoxContainer" unique_id=1049117969]
+[node name="Label4" type="Label" parent="Panel/HBoxContainer" unique_id=1049117969]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_3mii5")
@@ -135,50 +93,226 @@ text = "|Yuki"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Attack2" type="Sprite2D" parent="." unique_id=331178789]
-position = Vector2(794, 899.625)
+[node name="Screenshot20260831190308" type="Sprite2D" parent="Panel/HBoxContainer" unique_id=48847583]
+position = Vector2(491, -288)
+scale = Vector2(0.31410253, 0.4)
+texture = ExtResource("3_mah5v")
+
+[node name="torch" parent="Panel/HBoxContainer" unique_id=759864548 instance=ExtResource("3_4av4j")]
+position = Vector2(306, -261)
+scale = Vector2(4, 4)
+
+[node name="torch2" parent="Panel/HBoxContainer" unique_id=1940020236 instance=ExtResource("3_4av4j")]
+position = Vector2(706, -257)
+scale = Vector2(4, 4)
+
+[node name="Attack2" type="Sprite2D" parent="Panel" unique_id=331178789]
+position = Vector2(911.9997, 928.625)
 scale = Vector2(6.6328144, 6.421874)
 texture = ExtResource("1_pjc1l")
 hframes = 4
 vframes = 3
 frame = 4
 
-[node name="Screenshot20260831190308" type="Sprite2D" parent="." unique_id=48847583]
-position = Vector2(933, 323)
-scale = Vector2(0.31410253, 0.4)
-texture = ExtResource("3_mah5v")
-
-[node name="knight" type="Sprite2D" parent="." unique_id=569761305]
-position = Vector2(1083, 839.625)
+[node name="knight" type="Sprite2D" parent="Panel" unique_id=569761305]
+position = Vector2(1251.9999, 868.625)
 scale = Vector2(6.546875, 6.1757813)
 texture = ExtResource("2_j6beo")
 hframes = 6
 vframes = 18
 frame = 88
 
-[node name="torch" parent="." unique_id=759864548 instance=ExtResource("3_4av4j")]
-position = Vector2(748, 350)
-scale = Vector2(4, 4)
-
-[node name="torch2" parent="." unique_id=1940020236 instance=ExtResource("3_4av4j")]
-position = Vector2(1148, 354)
-scale = Vector2(4, 4)
-
-[node name="CandleB04" type="Sprite2D" parent="." unique_id=1662403270]
-position = Vector2(913, 916.625)
+[node name="CandleB04" type="Sprite2D" parent="Panel" unique_id=1662403270]
+position = Vector2(1074.9998, 945.625)
 scale = Vector2(4.153846, 4.0000014)
 texture = ExtResource("4_5em78")
 
-[node name="Back" type="Button" parent="." unique_id=450887871]
+[node name="Back" type="Button" parent="Panel" unique_id=450887871]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 888.625
-offset_right = 566.0
-offset_bottom = 983.625
+offset_left = 359.0
+offset_top = 917.625
+offset_right = 535.0
+offset_bottom = 1012.625
 theme_override_styles/normal = SubResource("StyleBoxFlat_j6beo")
 text = "<-----"
+
+[node name="Start2" type="Button" parent="Panel" unique_id=2337845]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 639.0
+offset_right = 1580.0
+offset_bottom = 681.0
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "ART BY
+"
+
+[node name="Start3" type="Button" parent="Panel" unique_id=558880399]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 550.0
+offset_right = 1580.0
+offset_bottom = 592.0
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "H.Aliev"
+
+[node name="Start" type="Button" parent="Panel" unique_id=1879920467]
+layout_mode = 0
+offset_left = 545.5
+offset_top = 454.5
+offset_right = 1583.5
+offset_bottom = 496.5
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "MERCIA INTERACTIVE"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1971355898]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3614.0
+offset_top = -567.0
+offset_right = -1006.0
+offset_bottom = 778.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2" unique_id=425513580]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 640.0
+offset_right = 1489.0
+offset_bottom = 787.0
+alignment = 1
+
+[node name="Label3" type="Label" parent="Panel2/HBoxContainer" unique_id=927065558]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "Snoblin "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel2/HBoxContainer" unique_id=2089501950]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "|Szadi Art |"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel2/HBoxContainer" unique_id=1782621302]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "Lyinia Design"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Panel2/HBoxContainer" unique_id=1555008028]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3mii5")
+theme_override_font_sizes/font_size = 30
+text = "|Yuki"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Screenshot20260831190308" type="Sprite2D" parent="Panel2/HBoxContainer" unique_id=186763348]
+position = Vector2(491, -288)
+scale = Vector2(0.31410253, 0.4)
+texture = ExtResource("3_mah5v")
+
+[node name="torch" parent="Panel2/HBoxContainer" unique_id=433831976 instance=ExtResource("3_4av4j")]
+position = Vector2(306, -261)
+scale = Vector2(4, 4)
+
+[node name="torch2" parent="Panel2/HBoxContainer" unique_id=912555064 instance=ExtResource("3_4av4j")]
+position = Vector2(706, -257)
+scale = Vector2(4, 4)
+
+[node name="Attack2" type="Sprite2D" parent="Panel2" unique_id=204717620]
+position = Vector2(991, 928.625)
+scale = Vector2(6.6328144, 6.421874)
+texture = ExtResource("1_pjc1l")
+hframes = 4
+vframes = 3
+frame = 4
+
+[node name="knight" type="Sprite2D" parent="Panel2" unique_id=1503115981]
+position = Vector2(1280, 868.625)
+scale = Vector2(6.546875, 6.1757813)
+texture = ExtResource("2_j6beo")
+hframes = 6
+vframes = 18
+frame = 88
+
+[node name="CandleB04" type="Sprite2D" parent="Panel2" unique_id=133952161]
+position = Vector2(1110, 945.625)
+scale = Vector2(4.153846, 4.0000014)
+texture = ExtResource("4_5em78")
+
+[node name="Back" type="Button" parent="Panel2" unique_id=79493998]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 917.625
+offset_right = 535.0
+offset_bottom = 1012.625
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6beo")
+text = "<-----"
+
+[node name="Start2" type="Button" parent="Panel2" unique_id=1829154358]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 639.0
+offset_right = 1580.0
+offset_bottom = 681.0
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "ART BY
+"
+
+[node name="Start3" type="Button" parent="Panel2" unique_id=1360900454]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 550.0
+offset_right = 1580.0
+offset_bottom = 592.0
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "H.Aliev"
+
+[node name="Start" type="Button" parent="Panel2" unique_id=1882725204]
+layout_mode = 0
+offset_left = 545.5
+offset_top = 454.5
+offset_right = 1583.5
+offset_bottom = 496.5
+theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
+theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h30m1")
+text = "MERCIA INTERACTIVE"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=903725621]
 color = Color(0.806923, 0.7725768, 0.80673385, 0.99215686)
 
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel2/Back" to="." method="_on_back_pressed"]

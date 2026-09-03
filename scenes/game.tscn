@@ -2866,15 +2866,15 @@ texture = ExtResource("2_yqjtg")
 3:10/0 = 0
 3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:10/0 = 0
-4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.9763756, -8, 1.0791531)
 5:10/0 = 0
-5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.9763756, -8, 1.0791531)
 6:10/0 = 0
-6:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.9763756, -8, 1.0791531)
 7:10/0 = 0
-7:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0.9763756, -8, 1.0791531)
 8:10/0 = 0
-8:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.2847042, -8, 1.3874817)
 9:10/0 = 0
 10:10/0 = 0
 11:10/0 = 0
@@ -2907,10 +2907,15 @@ texture = ExtResource("2_yqjtg")
 4:11/0 = 0
 4:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:11/0 = 0
+5:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.1819286, -8, 1.2847042)
 6:11/0 = 0
+6:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.1819286, -8, 1.2847042)
 7:11/0 = 0
+7:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.1819286, -8, 1.2847042)
 8:11/0 = 0
+8:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.1819286, -8, 1.2847042)
 9:11/0 = 0
+9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 10:11/0 = 0
 11:11/0 = 0
 12:11/0 = 0
@@ -2921,10 +2926,14 @@ texture = ExtResource("2_yqjtg")
 17:11/0 = 0
 18:11/0 = 0
 19:11/0 = 0
+19:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 23:11/0 = 0
+23:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 25:11/0 = 0
+25:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 27:11/0 = 0
 29:11/0 = 0
+29:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 37:11/0 = 0
 38:11/0 = 0
 40:11/0 = 0
@@ -3139,15 +3148,17 @@ texture = ExtResource("2_yqjtg")
 61:15/0 = 0
 62:15/0 = 0
 3:16/0 = 0
-3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 4:16/0 = 0
-4:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 5:16/0 = 0
 6:16/0 = 0
 7:16/0 = 0
 8:16/0 = 0
 9:16/0 = 0
+9:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 10:16/0 = 0
+10:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.0791531, -8, 0.9763756, -8, -1.9013634)
 11:16/0 = 0
 12:16/0 = 0
 13:16/0 = 0
@@ -4992,7 +5003,7 @@ y_sort_enabled = true
 [node name="player" parent="Chars" unique_id=439305841 instance=ExtResource("1_uwrxv")]
 z_index = 4
 y_sort_enabled = true
-position = Vector2(882, 55)
+position = Vector2(882, -4)
 
 [node name="Ghosts" type="Node2D" parent="Chars" unique_id=1533941391 groups=["ghost-move"]]
 z_index = 5
@@ -5029,12 +5040,18 @@ autostart = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1545065909]
 
 [node name="Score" parent="CanvasLayer" unique_id=1097348965 instance=ExtResource("9_0tnpc")]
-position = Vector2(957, 29.723)
+offset_left = -1353.0
+offset_top = 29.723
+offset_right = -1353.0
+offset_bottom = 29.723022
 scale = Vector2(2.2, 2.2)
 
 [node name="GameOver" parent="CanvasLayer" unique_id=1327198462 instance=ExtResource("11_dinhu")]
 visible = false
-position = Vector2(960, 249)
+offset_left = -1919.0
+offset_top = -1022.0
+offset_right = -2810.8008
+offset_bottom = -1523.6382
 scale = Vector2(4.5, 4.5)
 
 [node name="FatGhostDetect" type="Node2D" parent="." unique_id=946942752]

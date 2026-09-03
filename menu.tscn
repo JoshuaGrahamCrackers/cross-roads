@@ -30,36 +30,60 @@ shadow_offset = Vector2(4, 4)
 
 [node name="Menu" type="Control" unique_id=312411386]
 layout_mode = 3
-anchor_right = 0.624
-anchor_bottom = 0.632
-offset_right = 728.9199
-offset_bottom = 284.43994
+anchor_right = 1.3540001
+anchor_bottom = 1.3610001
+offset_right = -1449.6802
+offset_bottom = -344.88013
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_4hy44")
 
 [node name="Panel" type="Panel" parent="." unique_id=481952388]
-layout_mode = 0
-offset_right = 2017.0
-offset_bottom = 1263.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1449825275]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.823975
+offset_top = -35.0
+offset_right = 838.824
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Attack2" type="Sprite2D" parent="Panel" unique_id=1536377916]
+position = Vector2(1370.824, 918)
+scale = Vector2(15, 14.93)
+texture = ExtResource("1_mae5d")
+flip_h = true
+hframes = 4
+vframes = 3
+frame = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=2049669269]
+position = Vector2(1039.824, 911)
+scale = Vector2(18, 12.198)
+texture = ExtResource("5_l48gv")
+hframes = 6
+vframes = 24
+frame = 63
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1449825275]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.564
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.564
-offset_left = -714.29944
-offset_top = -67.388
-offset_right = -10.5
-offset_bottom = 158.112
+anchor_bottom = 0.5
+offset_left = -739.8997
+offset_top = -86.75
+offset_right = -36.10034
+offset_bottom = 138.75
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=312544613]
+[node name="Start" type="Button" parent="Panel/VBoxContainer" unique_id=312544613]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
 theme_override_colors/font_hover_color = Color(0.90588236, 0.92156863, 0.9490196, 1)
@@ -68,7 +92,7 @@ theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
 text = "START"
 
-[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1604025025]
+[node name="Credits" type="Button" parent="Panel/VBoxContainer" unique_id=1604025025]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.87268203, 0.8726819, 0.8726819, 1)
 theme_override_fonts/font = ExtResource("5_ytr4m")
@@ -77,37 +101,23 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
 text = "Credits
 "
 
-[node name="Attack2" type="Sprite2D" parent="." unique_id=1536377916]
-position = Vector2(1305.0001, 883)
-scale = Vector2(15, 14.93)
-texture = ExtResource("1_mae5d")
-flip_h = true
-hframes = 4
-vframes = 3
-frame = 5
+[node name="torch" parent="Panel/VBoxContainer" unique_id=759864548 instance=ExtResource("2_4hy44")]
+position = Vector2(326.4499, -112.875)
+scale = Vector2(5, 5)
 
-[node name="torch" parent="." unique_id=759864548 instance=ExtResource("2_4hy44")]
-position = Vector2(928.00006, 140)
-scale = Vector2(10, 10)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2049669269]
-position = Vector2(645, 876)
-scale = Vector2(18, 12.198)
-texture = ExtResource("5_l48gv")
-hframes = 6
-vframes = 24
-frame = 63
-
-[node name="Label" type="Label" parent="." unique_id=1174539419]
+[node name="Label" type="Label" parent="Panel" unique_id=1174539419]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -726.5
-offset_top = 187.0
-offset_right = 673.5
-offset_bottom = 616.0
+anchor_bottom = 0.5
+offset_left = -1065.0
+offset_top = -266.2273
+offset_right = 842.3108
+offset_bottom = 318.2273
 grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.1, 1.1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -123,5 +133,5 @@ color = Color(0.806923, 0.7725768, 0.80673385, 0.99215686)
 [node name="menuAudio" type="AudioStreamPlayer" parent="." unique_id=860807894]
 stream = ExtResource("6_l48gv")
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

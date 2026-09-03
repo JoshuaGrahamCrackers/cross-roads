@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 func _ready():
 	$Label.pivot_offset = $Label.size / 2

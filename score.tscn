@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxcm5l5k440e7"]
 
-[ext_resource type="Script" uid="uid://1q1ou5gjl6v2" path="res://score.gd" id="1_t1x8i"]
+[ext_resource type="Script" path="res://score.gd" id="1_t1x8i"]
 [ext_resource type="FontFile" uid="uid://bya1ex5qh2blx" path="res://assets/BoldPixels.ttf" id="2_ceanc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ytr4m"]
@@ -11,10 +11,17 @@ shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(1.5, 1.5)
 
-[node name="Score" type="Node2D" unique_id=1097348965]
+[node name="Score" type="Control" unique_id=911427969]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_t1x8i")
 
 [node name="Label" type="Label" parent="." unique_id=872458112]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
